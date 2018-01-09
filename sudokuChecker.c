@@ -1,5 +1,5 @@
 /*******************************************************************************
- * sudokuChecker.c
+ * sudokuChecker.c by Geoffrey Sessums
  * Purpose:
  *  Verifies a proposed Sudoku solution from a text file following the Sudoku 
  *  rules against duplication values in a row, column, or outlined 3 x 3 square. 
@@ -104,6 +104,13 @@ int main(int argc, char *argv[])
 } // end of main
 
 /****************************** getSudokuValues *********************************
+ * void getSudokuValues(int sudoku[][MAXCOLUMNS]);
+ * Purpose:
+ *     Read sudoku values entered by the user.
+ * Parameters:
+ *     I/O    sudoku[][MAXCOLUMNS]    stores sudoku puzzle values
+ * Notes:
+ *     Only valid sudoku values and zero are added (i.e. values 0-9)
  *******************************************************************************/
 void getSudokuValues(int sudoku[][MAXCOLUMNS])
 {
@@ -140,13 +147,21 @@ void getSudokuValues(int sudoku[][MAXCOLUMNS])
 }
 
 /****************************** printValues *************************************
+ * void printValues(int count[]);
+ * Purpose:
+ *     Prints possible values for empty sudoku cells.
+ * Parameters:
+ *     I/O  count[]     contains count of sudoku puzzle values. An index with
+ *                      non-zero value represents a possible value for an empty 
+ *                      cell with the sudoku puzzle. Count array is reset after
+ *                      index is printed.
  *******************************************************************************/
 void printValues(int count[])
 {
     int rowIndex;
     /*
      * If element contains zero, then
-     * print position as possible value.
+     * print index as possible value.
      */
     for (rowIndex = 0; rowIndex < 10; rowIndex++) {
         if (count[rowIndex] == 0) {
@@ -158,6 +173,17 @@ void printValues(int count[])
 }
 
 /****************************** searchRows **************************************
+ * void searchRows(int sudoku[][MAXCOLUMNS], int count[], int rowIndex);
+ * Purpose:
+ *     Search the rows of the sudoku puzzle and track the values by incrementing
+ *     the corresponding index of the count array.
+ * Parameters:
+ *     I    sudoku[][MAXCOLUMNS]    sudoku puzzle values
+ *     I    rowIndex                index of sudoku row
+ *     I/O  count[]     contains count of sudoku puzzle values. An index with
+ *                      non-zero value represents a possible value for an empty 
+ *                      cell with the sudoku puzzle. Count array is reset after
+ *                      index is printed.
  *******************************************************************************/
 void searchRows(int sudoku[][MAXCOLUMNS], int count[], int rowIndex)
 {
@@ -171,6 +197,17 @@ void searchRows(int sudoku[][MAXCOLUMNS], int count[], int rowIndex)
 }
 
 /****************************** searchColumns ***********************************
+ * void searchColumns(int sudoku[][MAXCOLUMNS], int count[], int columnIndex);
+ * Purpose:
+ *     Search the columns of the sudoku puzzle and track the values by 
+ *     incrementing the corresponding index of the count array.
+ * Parameters:
+ *     I    sudoku[][MAXCOLUMNS]    sudoku puzzle values
+ *     I    columnIndex             index of sudoku column
+ *     I/O  count[]     contains count of sudoku puzzle values. An index with
+ *                      non-zero value represents a possible value for an empty 
+ *                      cell with the sudoku puzzle. Count array is reset after
+ *                      index is printed.
  *******************************************************************************/
 void searchColumns(int sudoku[][MAXCOLUMNS], int count[], int columnIndex)
 {
@@ -184,10 +221,18 @@ void searchColumns(int sudoku[][MAXCOLUMNS], int count[], int columnIndex)
 }
 
 /****************************** searchRegions ***********************************
+ * void searchRegions(int sudoku[][MAXCOLUMNS], int count[], int rowIndex, 
+ * int columnIndex);
  * Purpose:
- *     Searches each 3x3 sub-region of the sudoku puzzle.
+ *     Search the 3x3 sub-regions of the sudoku puzzle and track the values by 
+ *     incrementing the corresponding index of the count array.
  * Parameters:
- * Notes:
+ *     I    sudoku[][MAXCOLUMNS]    sudoku puzzle values
+ *     I    rowIndex                index of sudoku row
+ *     I    columnIndex             index of sudoku column
+ *     I/O  count[]     contains count of sudoku puzzle values. An index with
+ *                      non-zero value represents a possible value for an empty 
+ *                      cell with the sudoku puzzle. Count array is reset after
  *******************************************************************************/
 void searchRegions(int sudoku[][MAXCOLUMNS], int count[], int rowIndex,
         int columnIndex)
