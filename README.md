@@ -1,28 +1,44 @@
-# Project: SudokuChecker
-#### Description:
-Written in C, SudokuChecker verifies a proposed Sudoku solution from a text file following the Sudoku rules against duplicating values in a row, column, or outlined 3 x 3 square.
+# SudokuChecker
+
+Geoffrey Sessums  
+CS 2123 Data Structures - Fall 2016  
+Language: C  
+
+## Description
+
+SudokuChecker verifies a proposed Sudoku solution from a text file following the Sudoku rules against duplicating values in a row, column, or outlined 3 x 3 square.
+
+## What I Learned
+
+* How to process command line arguments
+* How to use header files
+* How to process user input
+* How to redirect input/output
+* How to use 2D arrays
+* How to handle simple errors
 
 ## Installation
-Clone the repository wherever you like (e.g. `~/Projects/SudokuChecker`):
-```bash
-git clone https://github.com/gsessums/SudokuChecker.git
-```
+
+Clone the repository wherever you like (e.g. `~/Projects/SudokuChecker`):  
+`git clone https://github.com/gsessums/SudokuChecker.git`
 
 ## Usage
-Use the included Makefile:
-```bash
-make
-```
-To execute:
-```
-./sudokuChecker
-```
-### Alternatively
-You may use the included sample files:
-(e.g. `./sudokuChecker < sudoku-solution1-false-to-be-checked.txt`)
+
+Use the included Makefile:  
+`make`
+
+To execute:  
+`./sudokuChecker`
+
+Alternatively:  
+
+You may use the included sample files:  
+`./sudokuChecker < sudoku-solution1-false-to-be-checked.txt`
 
 ## Testing
-Several files are included for testing the program:
+
+Several files are included for testing the program:  
+
 * sudoku-puzzle1.txt
     * Input text file containing a sample sudoku puzzle.
 * sudoku-solution1-false-to-be-checked.txt
@@ -31,9 +47,11 @@ Several files are included for testing the program:
     * Input text file containing a CORRECT proposed solution.
 
 ## Credits
-Author: [Geoffrey Sessums](http://www.geoffreysessums.com)
+
+Author: Geoffrey Sessums
 
 ## License
+
 MIT License
 
 Copyright (c) 2017 Geoffrey Sessums
